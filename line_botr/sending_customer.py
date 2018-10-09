@@ -11,15 +11,21 @@ import time, random
 from datetime import datetime as dt
 from repository import service as serv
 
+def dur(t=1):
+  time.sleep(t)
 
 def push_send_customer(user_id, line_bot_api):
   _text = "体重目標が厳しいペースになっているね。思い通りのダイエットを実施できているかな？"
   line_bot_api.push_message(user_id, TextSendMessage(text=_text))
+  dur()
   _text = "毎日、運動したり食事コントロールするのは大変だよね。"
   line_bot_api.push_message(user_id, TextSendMessage(text=_text))
+  dur()
   _text = "パーソナルトレーニングジムでは、ボディメイクやダイエットを目的に、食事指導や一緒にトレーニングをサポートしてくれたりするので、もし興味があったら、検討してみてね。"
   line_bot_api.push_message(user_id, TextSendMessage(text=_text))
-  _text = "一応、RIZAPの無料カウンセリングがあるんだけど、申し込んでおこうか？"
+  dur()
+  _text = "RIZAPの無料カウンセリングがあるんだけど、申し込んでおこうか？"
+  Session_interface.set_waiting_mode(user_id=user_id, mode=MODE.AFTER_START_SEND_CUSTOMER)
   line_bot_api.push_message(user_id, TextSendMessage(text=_text, 
     quick_reply=QuickReply(
             items=[
@@ -27,7 +33,6 @@ def push_send_customer(user_id, line_bot_api):
               QuickReplyButton(action=PostbackAction(label="いいえ", data="いいえ", text="いいえ")),
             ]
         )))
-  Session_interface.set_waiting_mode(user_id=user_id, mode=MODE.AFTER_START_SEND_CUSTOMER)
 
 def after_start_send_customer(event=None, line_bot_api=None):
   user_id = event.source.user_id
