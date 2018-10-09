@@ -1,0 +1,10 @@
+Flask==1.0.2
+line-bot-sdk==1.8.0
+
+bs4
+beautifulsoup4
+request
+lxml
+
+# For Clover
+clova-cek-sdk

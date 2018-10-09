@@ -1,0 +1,42 @@
+{
+  "type": "carousel",
+  "contents": [
+		{% for item in items %}
+    {
+			"type": "bubble",
+			"header": {
+				"type": "box",
+				"layout": "vertical",
+				"contents": [
+					{
+						"type": "text",
+						"text": "{{item['name']}}"
+					}
+				]
+			},
+			 "hero": {
+         "type": "image",
+				 {% if item['thumbnail_img'] is not none %}
+         	"url": "{{item['thumbnail_img']}}",
+				 {% endif %}
+         "size": "full",
+         "aspectRatio": "2:1"
+      },
+		  "footer": {
+		    "type": "box",
+		    "layout": "horizontal",
+		    "contents": [
+						{
+				      "type": "button",
+				      "action": {
+								"type":"uri",
+						   "label":"Watch Video",
+						   "uri":"{{item['vd_url']}}"
+				      }
+						}
+		    ]
+		  }
+			}{{ "," if not loop.last }}
+			{% endfor %}
+  ]
+}

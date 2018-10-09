@@ -1,0 +1,37 @@
+{
+  "type": "carousel",
+  "contents": [
+		{% for item in items %}
+    {
+			"type": "bubble",
+		  "body": {
+		    "type": "box",
+		    "layout": "horizontal",
+		    "contents": [
+				      {
+				        "type": "image",
+				        "url": "{{item['img_url']}}",
+				        "size": "full"
+				      }
+		    ]
+		  },
+		  "footer": {
+		    "type": "box",
+		    "layout": "vertical",
+		    "contents": [
+		      {
+		      "type": "button",
+		      "action": {
+							   "type":"postback",
+							   "label":"{{item['name']}}",
+							   "data":"itemid={{ loop.index0 }}",
+							   "text":"{{item['name']}}"
+		      },
+		  "style": "primary",
+		  "color": "#00FF66"      }
+		    ]
+		  }
+		}{{ "," if not loop.last }}
+		{% endfor %}
+  ]
+}

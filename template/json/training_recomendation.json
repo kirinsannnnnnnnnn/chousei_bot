@@ -1,0 +1,34 @@
+{
+  "type": "carousel",
+  "contents": [
+		{% for item in items %}
+    {
+			"type": "bubble",
+			"header": {
+				"type": "box",
+				"layout": "vertical",
+				"contents": [
+					{
+						"type": "text",
+						"text": "{{item['name']}}"
+					}
+				]
+			},
+		  "body": {
+		    "type": "box",
+		    "layout": "horizontal",
+		    "contents": [
+						{
+				      "type": "button",
+				      "action": {
+								"type":"uri",
+						   "label":"Watch Video",
+						   "uri":"{{item['vd_url']}}"
+				      }
+						}
+		    ]
+		  }
+		}{{ "," if not loop.last }}
+		{% endfor %}
+  ]
+}
