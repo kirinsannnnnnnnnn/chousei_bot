@@ -17,7 +17,7 @@ services:
     volumes:
     - sample-vhosts:/var/www/vhosts
   web:
-    build: ./line-bot
+    build: ./
     container_name: gym-progress-docker_app
     restart: always
     env_file:
