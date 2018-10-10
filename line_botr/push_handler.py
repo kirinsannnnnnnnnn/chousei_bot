@@ -5,10 +5,6 @@ from .words_processor import (
   get_youtube_recommend, judgeWhat
 )
 
-MY_UID = "U631f4797dcb994aec61b9e348d0c32bd"
-GG_GID = "C3942d7c125888f05f22cccfb74b0c5ed"
-
-
 class Push_handler:
   def __init__(self, MODE):
     self.text = ""
