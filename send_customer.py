@@ -44,9 +44,7 @@ def _send_customer(user_id):
       send_cus.push_send_customer(user_id, line_bot.line_bot_api)
     else:
       comment(user_id)
-  elif user_id == 'U631f4797dcb994aec61b9e348d0c32bd':
-    send_cus.push_send_customer('U631f4797dcb994aec61b9e348d0c32bd', line_bot.line_bot_api)
-
+      
 def starting_point():
   user_id_list = serv.get_user_id_list()
   for user_id in user_id_list:
@@ -58,7 +56,7 @@ if __name__ == "__main__":
   repo.create_table(DB_PATH)
 
   import random
-  user_id = 'U631f4797dcb994aec61b9e348d0c32bd'
+  user_id = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
   if not user_id in serv.get_user_id_list():
     repo.insert_into_users_sex(user_id, "男性", registered_date=dt(2018,10, 9))
     registered_date = serv.get_registered_date(user_id)  
