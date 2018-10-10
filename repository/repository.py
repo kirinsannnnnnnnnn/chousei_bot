@@ -219,8 +219,6 @@ if __name__ == "__main__":
   b = select_weight_from_weight(user_id)
   pprint(b)
 
-  # insert_into_users("U631f4797dcb994aec61b9e348d0c32bd", "sex", 1)
-  # delete_from_users("U631f4797dcb994aec61b9e348d0c32bd")
   print(select_from_users(user_id, "sex"))
 
   update_users(user_id, "weight", "80")
