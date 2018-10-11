@@ -13,7 +13,7 @@ services:
     # 'production'で試行錯誤するとすぐにrate-limitにかかる
       STAGE: 'staging'
       DOMAINS: >-
-        www.giraffegiraffegiraffe.tokyo -> http://gym-progress-docker_app:80
+        www.giraffegiraffegiraffe.tokyo -> http://gym-progress-docker_app:8080
     volumes:
     - sample-vhosts:/var/www/vhosts
   web:
