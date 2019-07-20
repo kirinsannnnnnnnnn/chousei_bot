@@ -1,10 +1,15 @@
-Flask==1.0.2
-line-bot-sdk==1.8.0
+Flask>=1
+line-bot-sdk>=1
 
+# server
+gunicorn
+
+# Database
+psycopg2
+sqlalchemy
+
+# scraping
 bs4
 beautifulsoup4
 request
 lxml
-
-# For Clover
-clova-cek-sdk

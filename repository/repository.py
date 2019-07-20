@@ -36,7 +36,6 @@ col_type_dict = {
   "interesting": "TEXT"
 }
 
-
 table_name_dict = {"USER_TABLE_NAME": "users_table",
   "WEIGHT_TABLE_NAME": "weight_table",
 }
@@ -79,23 +78,11 @@ def create_table(path=None):
             "birth_date {DATE} DEFAULT {default_birth_date}, " + \
             "email {TEXT} DEFAULT {default_text}, " + \
             "sir_name {TEXT} DEFAULT {default_text}, " + \
-            "first_name {TEXT} DEFAULT {default_text}, " + \
-            "phone {TEXT} DEFAULT {default_text}, " + \
-            "weight {REAL} DEFAULT {default_weight}, " + \
-            "height {REAL} DEFAULT {default_height}, " + \
-            "first_weight {REAL} DEFAULT {default_first_weight}, " + \
-            "goal_weight {REAL} DEFAULT {default_goal_weight}, " + \
-            "goal_date {DATE} DEFAULT {default_goal_date}, " + \
-            "is_sports {TEXT} DEFAULT {default_is_sports}, " + \
-            "place_sports {TEXT} DEFAULT {default_place_sports}, " + \
-            "food_sports {TEXT} DEFAULT {default_food_sports}, " + \
-            "purpose {TEXT} DEFAULT {default_purpose}, " + \
-            "recom_time_morning {TIME} DEFAULT {default_recom_time_morning}, " + \
-            "interesting {TEXT} DEFAULT {default_interesting})").format(**sql_dict))
+            "first_name {TEXT} DEFAULT {default_text})").format(**sql_dict))
 
         con.execute(
               str("CREATE TABLE IF NOT EXISTS " + \
-              "{WEIGHT_TABLE_NAME}" + \
+              "{GROUP_TABLE_NAME}" + \
               "(log_id {INTEGER} PRIMARY KEY AUTOINCREMENT," + \
               "user_id {TEXT}, " + \
               "user_weight {REAL}, " + \
@@ -195,7 +182,6 @@ def delete_from_weight(user_id):
   with closing(sqlite3.connect(DB_PATH)) as con:
     con.execute(query).fetchall()
     con.commit()
-
 
 if __name__ == "__main__":
   import random

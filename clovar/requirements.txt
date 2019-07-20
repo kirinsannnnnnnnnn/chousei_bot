@@ -1,4 +1,0 @@
-Flask==1.0.2
-
-# For Clover
-clova-cek-sdk
